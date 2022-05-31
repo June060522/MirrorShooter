@@ -157,6 +157,8 @@ MonoBehaviour:
   WhitePlayer: {fileID: 493339799}
   BlackPlayer: {fileID: 194877521}
   RememberPos: {fileID: 1273528613}
+  BlackBullet: {fileID: 8811649030127779651, guid: 887cd3f083e22e74a806f583bac6223d, type: 3}
+  WhiteBullet: {fileID: 8811649030127779651, guid: e25824a0af3b30d4d84c38b63d045ce3, type: 3}
 --- !u!212 &194877523
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -259,6 +261,7 @@ GameObject:
   - component: {fileID: 493339802}
   - component: {fileID: 493339801}
   - component: {fileID: 493339803}
+  - component: {fileID: 493339800}
   m_Layer: 0
   m_Name: WhitePlayer
   m_TagString: Untagged
@@ -266,6 +269,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &493339800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493339799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62814513af564c9469034c73ab42d57f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &493339801
 SpriteRenderer:
   m_ObjectHideFlags: 0

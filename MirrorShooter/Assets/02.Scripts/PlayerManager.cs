@@ -9,7 +9,32 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject BlackPlayer;
     [SerializeField] GameObject RememberPos;
 
+    [SerializeField] GameObject BlackBullet;
+    [SerializeField] GameObject WhiteBullet;
+
+    private Vector2 MinPos = new Vector2 (-17.28f,-9.5f);
+    private Vector2 MaxPos = new Vector2 (17.28f,9.5f);
+
+    private void Start()
+    {
+        StartCoroutine(Fire());
+    }
+
     void Update()
+    {
+        Move();
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x,MinPos.x,MaxPos.x),Mathf.Clamp(transform.position.y,MinPos.y,MaxPos.y));
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.collider.CompareTag("Wall"))
+        {
+            ChangePosition();
+        }
+    }
+
+    private void Move()
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
@@ -18,13 +43,20 @@ public class PlayerManager : MonoBehaviour
         WhitePlayer.transform.Translate(-dir * speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void ChangePosition()
     {
-        if(other.collider.CompareTag("Wall"))
+        RememberPos.transform.position = WhitePlayer.transform.position;
+        WhitePlayer.transform.position = BlackPlayer.transform.position;
+        BlackPlayer.transform.position = RememberPos.transform.position;
+    }
+
+    IEnumerator Fire()
+    {
+        while(true)
         {
-            RememberPos.transform.position = WhitePlayer.transform.position;
-            WhitePlayer.transform.position = BlackPlayer.transform.position;
-            BlackPlayer.transform.position = RememberPos.transform.position;
+            Instantiate(BlackBullet,BlackPlayer.transform.position,Quaternion.identity);
+            Instantiate(WhiteBullet,WhitePlayer.transform.position,Quaternion.identity);
+            yield return new WaitForSeconds(0.4f);
         }
     }
 }
