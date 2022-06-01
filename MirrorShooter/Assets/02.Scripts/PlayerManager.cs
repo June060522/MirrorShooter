@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     private float speed = 7.5f;
+    #region ChangePosition
     [SerializeField] GameObject WhitePlayer;
     [SerializeField] GameObject BlackPlayer;
     [SerializeField] GameObject RememberPos;
+    [SerializeField] GameObject BlackBackground;
+    [SerializeField] GameObject WhiteBackGround;
+    #endregion
 
     [SerializeField] GameObject BlackBullet;
     [SerializeField] GameObject WhiteBullet;
@@ -48,6 +52,10 @@ public class PlayerManager : MonoBehaviour
         RememberPos.transform.position = WhitePlayer.transform.position;
         WhitePlayer.transform.position = BlackPlayer.transform.position;
         BlackPlayer.transform.position = RememberPos.transform.position;
+
+        RememberPos.transform.position = WhiteBackGround.transform.position;
+        WhiteBackGround.transform.position = BlackBackground.transform.position;
+        BlackBackground.transform.position = RememberPos.transform.position;
     }
 
     IEnumerator Fire()

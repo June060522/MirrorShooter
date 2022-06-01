@@ -157,6 +157,8 @@ MonoBehaviour:
   WhitePlayer: {fileID: 493339799}
   BlackPlayer: {fileID: 194877521}
   RememberPos: {fileID: 1273528613}
+  BlackBackground: {fileID: 1374371850}
+  WhiteBackGround: {fileID: 2076359942}
   BlackBullet: {fileID: 8811649030127779651, guid: 887cd3f083e22e74a806f583bac6223d, type: 3}
   WhiteBullet: {fileID: 8811649030127779651, guid: e25824a0af3b30d4d84c38b63d045ce3, type: 3}
 --- !u!212 &194877523
