@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangerPosition : MonoBehaviour
+public class WhiteEnemyBulletManager : MonoBehaviour
 {
-
+    private float speed = 7f;
     void Start()
     {
         
@@ -12,8 +12,6 @@ public class ChangerPosition : MonoBehaviour
 
     void Update()
     {
-        
+        transform.Translate(speed * Vector2.down * Time.deltaTime);
     }
-
-
 }
