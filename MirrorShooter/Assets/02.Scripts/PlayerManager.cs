@@ -18,6 +18,7 @@ public class PlayerManager : MonoBehaviour
 
     private Vector2 MinPos = new Vector2 (-17.28f,-9.5f);
     private Vector2 MaxPos = new Vector2 (17.28f,9.5f);
+    private readonly string Wall;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.collider.CompareTag("Wall"))
+        if(other.collider.CompareTag("Wall"))   
         {
             ChangePosition();
         }
