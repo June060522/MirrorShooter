@@ -13,18 +13,32 @@ public class WhiteEnemyManager : MonoBehaviour
 
     IEnumerator SpawnBullet()
     {
+        int random = 0;
         while(true)
         {
-            Instantiate(WhiteBullet,this.transform.position,Quaternion.identity);
+            random = Random.Range(0,10);
+            if(random < 6)
+                Instantiate(WhiteBullet,this.transform.position,Quaternion.identity);
             yield return new WaitForSeconds(1f);
+        }
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    private void Update()
+    {
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Bullet"))
+        if(other.CompareTag("WhiteBullet"))
         {
-
+            hp--;
         }
     }
 }

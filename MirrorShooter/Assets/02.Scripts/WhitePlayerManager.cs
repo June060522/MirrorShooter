@@ -15,4 +15,8 @@ public class WhitePlayerManager : MonoBehaviour
     {
         transform.position = new Vector2(Mathf.Clamp(transform.position.x,MinPos.x,MaxPos.x),Mathf.Clamp(transform.position.y,MinPos.y,MaxPos.y));
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+    }
 }

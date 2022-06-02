@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public int TotalPlayerHp = 5;
     private float speed = 7.5f;
     #region ChangePosition
     [SerializeField] GameObject WhitePlayer;
@@ -29,6 +30,11 @@ public class PlayerManager : MonoBehaviour
     {
         Move();
         transform.position = new Vector2(Mathf.Clamp(transform.position.x,MinPos.x,MaxPos.x),Mathf.Clamp(transform.position.y,MinPos.y,MaxPos.y));
+
+        if(TotalPlayerHp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -37,6 +43,11 @@ public class PlayerManager : MonoBehaviour
         {
             ChangePosition();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        TotalPlayerHp--;
     }
 
     private void Move()
