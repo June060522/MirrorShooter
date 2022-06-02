@@ -22,12 +22,10 @@ public class CenterLineLocation : MonoBehaviour
             if (transform.rotation.y >= 0)
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
-                Debug.Log("바뀜");
             }
             else
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-                Debug.Log(transform.rotation.y);
             }
         }
     }

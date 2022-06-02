@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2053286685434622225}
   - component: {fileID: 7178257878787356059}
   - component: {fileID: -3645041513972890957}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WhiteBullet
-  m_TagString: Untagged
+  m_TagString: WhiteBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

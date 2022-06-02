@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WhiteEnemyManager : MonoBehaviour
 {
+    private int hp = 3;
     [SerializeField] GameObject WhiteBullet;
     void Start()
     {
@@ -18,8 +19,12 @@ public class WhiteEnemyManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
-    void Update()
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if(other.CompareTag("Bullet"))
+        {
+
+        }
     }
 }
