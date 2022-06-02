@@ -34,6 +34,7 @@ public class PlayerManager : MonoBehaviour
         if(TotalPlayerHp <= 0)
         {
             Destroy(gameObject);
+            Destroy(WhitePlayer);
         }
     }
 
@@ -47,7 +48,10 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        TotalPlayerHp--;
+        if(other.CompareTag("BlackEnemyBullet"))
+        {
+            TotalPlayerHp--;
+        }
     }
 
     private void Move()

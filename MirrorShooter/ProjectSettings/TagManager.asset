@@ -9,6 +9,8 @@ TagManager:
   - WhitePlayer
   - BlackBullet
   - WhiteBullet
+  - WhiteEnemyBullet
+  - BlackEnemyBullet
   layers:
   - Default
   - TransparentFX
