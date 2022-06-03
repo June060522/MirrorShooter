@@ -51,6 +51,7 @@ public class PlayerManager : MonoBehaviour
         if(other.CompareTag("BlackEnemyBullet"))
         {
             TotalPlayerHp--;
+            Destroy(other.gameObject);
         }
     }
 

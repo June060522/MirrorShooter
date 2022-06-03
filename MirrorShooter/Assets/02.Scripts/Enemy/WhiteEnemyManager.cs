@@ -23,9 +23,6 @@ public class WhiteEnemyManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
     private void Update()
     {
         if(hp <= 0)
@@ -39,6 +36,7 @@ public class WhiteEnemyManager : MonoBehaviour
         if(other.CompareTag("WhiteBullet"))
         {
             hp--;
+            Destroy(other.gameObject);
         }
     }
 }

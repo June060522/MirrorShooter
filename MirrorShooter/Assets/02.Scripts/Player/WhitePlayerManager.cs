@@ -22,6 +22,7 @@ public class WhitePlayerManager : MonoBehaviour
         if(other.CompareTag("WhiteEnemyBullet"))
         {
             playerManager.TotalPlayerHp--;
+            Destroy(other.gameObject);
         }
     }
 }
