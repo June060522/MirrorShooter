@@ -6,13 +6,11 @@ public class PlayerManager : MonoBehaviour
 {
     public int TotalPlayerHp = 5;
     private float speed = 7.5f;
-    #region ChangePosition
     [SerializeField] GameObject WhitePlayer;
     [SerializeField] GameObject BlackPlayer;
     [SerializeField] GameObject RememberPos;
     [SerializeField] GameObject BlackBackground;
     [SerializeField] GameObject WhiteBackGround;
-    #endregion
 
     [SerializeField] GameObject BlackBullet;
     [SerializeField] GameObject WhiteBullet;
@@ -20,6 +18,13 @@ public class PlayerManager : MonoBehaviour
     private Vector2 MinPos = new Vector2 (-17.28f,-9.5f);
     private Vector2 MaxPos = new Vector2 (17.28f,9.5f);
     private readonly string Wall;
+    
+    TwinkePlayer tp;
+
+    private void Awake()
+    {
+        tp = GameObject.Find("GameManager").GetComponent<TwinkePlayer>();
+    }
 
     private void Start()
     {
@@ -51,6 +56,9 @@ public class PlayerManager : MonoBehaviour
         if(other.CompareTag("BlackEnemyBullet"))
         {
             TotalPlayerHp--;
+
+            tp.Twinke();
+            
             Destroy(other.gameObject);
         }
     }
