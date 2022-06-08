@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(WhitePlayer);
+            SceneManager.LoadScene("StartScene");
         }
     }
 
