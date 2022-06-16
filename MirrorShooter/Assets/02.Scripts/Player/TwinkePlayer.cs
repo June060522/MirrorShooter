@@ -15,7 +15,6 @@ public class TwinkePlayer : MonoBehaviour
 
     public void Twinke()
     {
-        Debug.Log("123123");
         StartCoroutine(TwinkeON());
     }
 
