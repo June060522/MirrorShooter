@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 6380096945317728073}
   - component: {fileID: 437062990597895576}
   - component: {fileID: -8207199729643162288}
+  - component: {fileID: 584621883354183722}
   m_Layer: 0
   m_Name: BlackEnemyBullet
   m_TagString: BlackEnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6380096945317728072
 Transform:
   m_ObjectHideFlags: 0
@@ -122,3 +123,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fef69f00e12494b8813013f31fb988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &584621883354183722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380096945317728074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01133de16ae47b14ab4aa6ee124d3539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageData: {fileID: 11400000, guid: 13d80ac8945310b45b0d88f64310356a, type: 2}

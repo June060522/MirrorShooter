@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BlackEnemyManager : MonoBehaviour
 {
+    PoolManager poolManager;
     private int hp = 3;
     [SerializeField] GameObject BlackBullet;
     void Start()
     {
+        poolManager = GameObject.Find("PoolManager").GetComponent<PoolManager>();
         StartCoroutine(SpawnBullet());
     }
 
@@ -34,8 +36,8 @@ public class BlackEnemyManager : MonoBehaviour
     {
         if(other.CompareTag("BlackBullet"))
         {
+            poolManager.Push(other.gameObject);
             hp--;
-            Destroy(other.gameObject);
         }
     }
 }

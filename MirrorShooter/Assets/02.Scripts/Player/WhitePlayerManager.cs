@@ -13,6 +13,7 @@ public class WhitePlayerManager : MonoBehaviour
     TwinkePlayer tp;
     private void Awake()
     {
+        playerManager = GetComponent<PlayerManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer1 = GameObject.Find("BlackPlayer").GetComponent<SpriteRenderer>();
         tp = GameObject.Find("GameManager").GetComponent<TwinkePlayer>();

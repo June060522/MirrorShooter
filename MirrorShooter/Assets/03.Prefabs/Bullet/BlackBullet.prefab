@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2053286685434622225}
   - component: {fileID: 7178257878787356059}
   - component: {fileID: -3645041513972890957}
+  - component: {fileID: 5795267215307698777}
   m_Layer: 7
   m_Name: BlackBullet
   m_TagString: BlackBullet
@@ -134,3 +135,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff84f475a6c137b4193ab44b851c21fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5795267215307698777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811649030127779651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01133de16ae47b14ab4aa6ee124d3539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageData: {fileID: 11400000, guid: 13d80ac8945310b45b0d88f64310356a, type: 2}

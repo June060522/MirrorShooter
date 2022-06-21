@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int TotalPlayerHp = 5;
+    public int TotalPlayerHp = 6;
     private float speed = 7.5f;
     [SerializeField] GameObject WhitePlayer;
     [SerializeField] GameObject BlackPlayer;
@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         tp = GameObject.Find("GameManager").GetComponent<TwinkePlayer>();
-    }
+}
 
     private void Start()
     {
@@ -89,8 +89,8 @@ public class PlayerManager : MonoBehaviour
     {
         while(true)
         {
-            Instantiate(BlackBullet,BlackPlayer.transform.position,Quaternion.identity);
-            Instantiate(WhiteBullet,WhitePlayer.transform.position,Quaternion.identity);
+            PoolManager.Instance.Pop(BlackBullet,transform.position, Quaternion.identity);
+            PoolManager.Instance.Pop(WhiteBullet,WhitePlayer.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.4f);
         }
     }

@@ -7,7 +7,7 @@ public class WhiteEnemyBulletManager : MonoBehaviour
     private float speed = 7f;
     void Start()
     {
-        
+    
     }
 
     void Update()

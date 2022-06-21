@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WhiteEnemyManager : MonoBehaviour
 {
-    private int hp = 3;
+    private int hp = 2;
     [SerializeField] GameObject WhiteBullet;
     void Start()
     {
