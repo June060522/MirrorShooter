@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class BlackEnemyManager : MonoBehaviour
 {
-    PoolManager poolManager;
     private int hp = 3;
     [SerializeField] GameObject BlackBullet;
     void Start()
     {
-        poolManager = GameObject.Find("PoolManager").GetComponent<PoolManager>();
         StartCoroutine(SpawnBullet());
     }
 
@@ -20,7 +18,7 @@ public class BlackEnemyManager : MonoBehaviour
         {
             random = Random.Range(0,10);
             if(random < 6)
-                Instantiate(BlackBullet,this.transform.position,Quaternion.identity);
+                PoolManager.Instance.Pop(BlackBullet,this.transform.position,Quaternion.identity);
             yield return new WaitForSeconds(1f);
         }
     }
@@ -36,7 +34,7 @@ public class BlackEnemyManager : MonoBehaviour
     {
         if(other.CompareTag("BlackBullet"))
         {
-            poolManager.Push(other.gameObject);
+            PoolManager.Instance.Push(other.gameObject);
             hp--;
         }
     }

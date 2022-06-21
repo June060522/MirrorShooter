@@ -18,7 +18,7 @@ public class WhiteEnemyManager : MonoBehaviour
         {
             random = Random.Range(0,10);
             if(random < 6)
-                Instantiate(WhiteBullet,this.transform.position,Quaternion.identity);
+                PoolManager.Instance.Pop(WhiteBullet,this.transform.position,Quaternion.identity);
             yield return new WaitForSeconds(1f);
         }
     }
@@ -36,7 +36,7 @@ public class WhiteEnemyManager : MonoBehaviour
         if(other.CompareTag("WhiteBullet"))
         {
             hp--;
-            Destroy(other.gameObject);
+            PoolManager.Instance.Push(other.gameObject);
         }
     }
 }

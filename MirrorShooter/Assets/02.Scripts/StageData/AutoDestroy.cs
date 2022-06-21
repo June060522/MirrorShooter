@@ -13,8 +13,6 @@ public class AutoDestroy : MonoBehaviour
         transform.position.y < stageData.MinLimit.y ||
         transform.position.y > stageData.MaxLimit.y)
         {
-            if(PoolManager.Instance == null)
-                Destroy(gameObject);
             PoolManager.Instance.Push(gameObject);
         }
     }
