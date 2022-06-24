@@ -4,13 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
   - BlackPlayer
   - WhitePlayer
   - BlackBullet
   - WhiteBullet
   - WhiteEnemyBullet
   - BlackEnemyBullet
+  - MiddleWall
+  - SideWall
   layers:
   - Default
   - TransparentFX

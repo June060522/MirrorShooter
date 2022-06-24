@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField] StageData stageData;
     enum Phase : short
     {
         easy = 0,
@@ -24,12 +25,15 @@ public class SpawnManager : MonoBehaviour
     {
         while((short)phase == 0)
         {
+            float x = Random.Range(stageData.MinLimit.x + 3.1f,stageData.MaxLimit.x - 3.1f);
+            float y = Random.Range(stageData.MaxLimit.y - 1f,stageData.MaxLimit.y - 2.1f);
+            Vector3 randomPos = new Vector3(x,y,0);
             int spawnvalue = Random.Range(0,1000);
             if(spawnvalue > 499)
-                PoolManager.Instance.Pop(BlackEnemy,transform.position,Quaternion.identity);
+                PoolManager.Instance.Pop(BlackEnemy,randomPos,Quaternion.identity);
             else
-                PoolManager.Instance.Pop(WhiteEnemy,transform.position,Quaternion.identity);
-            yield return null;
+                PoolManager.Instance.Pop(WhiteEnemy,randomPos,Quaternion.identity);
+            yield return new WaitForSeconds(2.5f);
         }
     }
 }

@@ -1,25 +1,47 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WhiteEnemyManager : MonoBehaviour
 {
-    private int hp = 2;
+    private int hp = 0;
+    private int repeatMove = 0;
+    int random = 0;
     [SerializeField] GameObject WhiteBullet;
-    void Start()
+    [SerializeField] int maxHp = 3;
+
+    private void OnEnable()
     {
+        repeatMove = 0;
+        hp = maxHp;
+        StartCoroutine(SpawnMove());
         StartCoroutine(SpawnBullet());
+    }
+
+    IEnumerator SpawnMove()
+    {
+        while(repeatMove < 170)
+        {
+            transform.position += Vector3.down * 5 * Time.deltaTime;
+            repeatMove++;
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(SpawnMove());
+        StopCoroutine(SpawnBullet());
     }
 
     IEnumerator SpawnBullet()
     {
-        int random = 0;
         while(true)
         {
+            yield return new WaitForSeconds(1f);
             random = Random.Range(0,10);
             if(random < 6)
                 PoolManager.Instance.Pop(WhiteBullet,this.transform.position,Quaternion.identity);
-            yield return new WaitForSeconds(1f);
         }
     }
 
@@ -27,7 +49,7 @@ public class WhiteEnemyManager : MonoBehaviour
     {
         if(hp <= 0)
         {
-            Destroy(gameObject);
+            PoolManager.Instance.Push(gameObject);
         }
     }
 
@@ -37,6 +59,11 @@ public class WhiteEnemyManager : MonoBehaviour
         {
             hp--;
             PoolManager.Instance.Push(other.gameObject);
+        }
+        
+        if(other.CompareTag("MiddleWall") || other.CompareTag("SideWall"))
+        {
+            PoolManager.Instance.Push(gameObject);
         }
     }
 }

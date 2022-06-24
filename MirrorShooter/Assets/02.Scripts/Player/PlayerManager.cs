@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
+    int score = 0;
+    int bestscore = 0;
+    public int Score
+    {
+        set => score = Mathf.Max(0,value);
+        get => score;
+    }
     public int TotalPlayerHp = 6;
     private float speed = 7.5f;
     [SerializeField] GameObject WhitePlayer;
@@ -16,9 +23,13 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject BlackBullet;
     [SerializeField] GameObject WhiteBullet;
 
+    [SerializeField] GameObject CenterLine;
+    [SerializeField] GameObject SideLine;
+    [SerializeField] GameObject SideLine1;
     private Vector2 MinPos = new Vector2 (-17.28f,-9.5f);
     private Vector2 MaxPos = new Vector2 (17.28f,9.5f);
     private readonly string Wall;
+    bool onTriggerEnter2DWall = false;
     
     TwinkePlayer tp;
 
@@ -39,15 +50,19 @@ public class PlayerManager : MonoBehaviour
 
         if(TotalPlayerHp <= 0)
         {
-            Destroy(gameObject);
-            Destroy(WhitePlayer);
+            PlayerPrefs.SetInt("Score", score);
+            PlayerPrefs.SetInt("BestScore",bestscore);
             SceneManager.LoadScene("StartScene");
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.collider.CompareTag("Wall"))   
+        if(other.collider.CompareTag("MiddleWall"))   
+        {
+            MiddleChange();
+        }
+        if(other.collider.CompareTag("SideWall"))
         {
             ChangePosition();
         }
@@ -74,15 +89,64 @@ public class PlayerManager : MonoBehaviour
         WhitePlayer.transform.Translate(-dir * speed * Time.deltaTime);
     }
 
-    private void ChangePosition()
+    private void MiddleChange()
     {
-        RememberPos.transform.position = WhitePlayer.transform.position;
-        WhitePlayer.transform.position = BlackPlayer.transform.position;
-        BlackPlayer.transform.position = RememberPos.transform.position;
+        if (BlackPlayer.transform.position.x < 0)
+        {
+            RememberPos.transform.position = WhitePlayer.transform.position + Vector3.right * 0.1f;
+            WhitePlayer.transform.position = BlackPlayer.transform.position + Vector3.left * 0.1f;
+            BlackPlayer.transform.position = RememberPos.transform.position;
+        }
+        else if (BlackPlayer.transform.position.x > 0)
+        {
+            RememberPos.transform.position = WhitePlayer.transform.position + Vector3.left * 0.1f;
+            WhitePlayer.transform.position = BlackPlayer.transform.position + Vector3.right * 0.1f;
+            BlackPlayer.transform.position = RememberPos.transform.position;
+        }
 
         RememberPos.transform.position = WhiteBackGround.transform.position;
         WhiteBackGround.transform.position = BlackBackground.transform.position;
         BlackBackground.transform.position = RememberPos.transform.position;
+
+        Vector3 chRo = CenterLine.transform.eulerAngles;
+        chRo.z += 180;
+        CenterLine.transform.eulerAngles = chRo;
+        chRo = SideLine.transform.eulerAngles;
+        chRo.z += 180;
+        SideLine.transform.eulerAngles = chRo;
+        chRo = SideLine1.transform.eulerAngles;
+        chRo.z += 180;
+        SideLine1.transform.eulerAngles = chRo;
+    }
+
+    private void ChangePosition()
+    {
+        if(BlackPlayer.transform.position.x > 0)
+        {
+            RememberPos.transform.position = WhitePlayer.transform.position + Vector3.right * 0.1f;
+            WhitePlayer.transform.position = BlackPlayer.transform.position + Vector3.left * 0.1f; 
+            BlackPlayer.transform.position = RememberPos.transform.position;
+        }
+        else if(BlackPlayer.transform.position.x < 0)
+        {
+            RememberPos.transform.position = WhitePlayer.transform.position + Vector3.left * 0.1f;
+            WhitePlayer.transform.position = BlackPlayer.transform.position + Vector3.right * 0.1f;
+            BlackPlayer.transform.position = RememberPos.transform.position;
+        }
+
+        RememberPos.transform.position = WhiteBackGround.transform.position;
+        WhiteBackGround.transform.position = BlackBackground.transform.position;
+        BlackBackground.transform.position = RememberPos.transform.position;
+
+        Vector3 chRo = CenterLine.transform.eulerAngles;
+        chRo.z += 180;
+        CenterLine.transform.eulerAngles = chRo;
+        chRo = SideLine.transform.eulerAngles;
+        chRo.z += 180;
+        SideLine.transform.eulerAngles = chRo;
+        chRo = SideLine1.transform.eulerAngles;
+        chRo.z += 180;
+        SideLine1.transform.eulerAngles = chRo;
     }
 
     IEnumerator Fire()
