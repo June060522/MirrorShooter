@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class WhiteEnemyManager : MonoBehaviour
 {
+    PlayerManager playerManager;
     private int hp = 0;
     private int repeatMove = 0;
     int random = 0;
     [SerializeField] GameObject WhiteBullet;
     [SerializeField] int maxHp = 3;
 
+    private void Start()
+    {
+        playerManager = GameObject.Find("BlackPlayer").GetComponent<PlayerManager>();
+    }
     private void OnEnable()
     {
         repeatMove = 0;
@@ -49,6 +54,7 @@ public class WhiteEnemyManager : MonoBehaviour
     {
         if(hp <= 0)
         {
+            playerManager.Score += 100;
             PoolManager.Instance.Push(gameObject);
         }
     }

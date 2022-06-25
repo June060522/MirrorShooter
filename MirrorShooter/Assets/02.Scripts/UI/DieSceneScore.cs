@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowScore : MonoBehaviour
+public class DieSceneScore : MonoBehaviour
 {
     Text score;
-    [SerializeField] PlayerManager playerManager;
     void Start()
     {
         score = GetComponent<Text>();
+        score.text = "Score : " + PlayerPrefs.GetInt("Score",0);;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        score.text = "Score : " + playerManager.Score;
+        
     }
 }

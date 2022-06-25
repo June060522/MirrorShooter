@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
         while((short)phase == 0)
         {
             float x = Random.Range(stageData.MinLimit.x + 3.1f,stageData.MaxLimit.x - 3.1f);
-            float y = Random.Range(stageData.MaxLimit.y - 1f,stageData.MaxLimit.y - 2.1f);
+            float y = Random.Range(stageData.MaxLimit.y - 1f,stageData.MaxLimit.y - 3.5f);
             Vector3 randomPos = new Vector3(x,y,0);
             int spawnvalue = Random.Range(0,1000);
             if(spawnvalue > 499)

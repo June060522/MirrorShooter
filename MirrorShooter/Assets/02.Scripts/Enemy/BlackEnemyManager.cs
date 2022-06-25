@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class BlackEnemyManager : MonoBehaviour
 {
+    PlayerManager playerManager;
     private int hp = 0;
     private int repeatMove;
     [SerializeField] GameObject BlackBullet;
     [SerializeField] int maxhp = 2;
+    
+    private void Awake()
+    {
+        playerManager = GameObject.Find("BlackPlayer").GetComponent<PlayerManager>();
+    }
+
     private void OnEnable()
     {
         repeatMove = 0;
@@ -47,6 +54,7 @@ public class BlackEnemyManager : MonoBehaviour
     {
         if(hp <= 0)
         {
+            playerManager.Score += 100;
             PoolManager.Instance.Push(gameObject);
         }
     }

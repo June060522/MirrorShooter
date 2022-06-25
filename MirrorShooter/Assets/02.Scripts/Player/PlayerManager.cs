@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
     int score = 0;
-    int bestscore = 0;
+    public int bestscore = 0;
     public int Score
     {
         set => score = Mathf.Max(0,value);
@@ -35,8 +35,9 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        bestscore = PlayerPrefs.GetInt("BestScore",0);
         tp = GameObject.Find("GameManager").GetComponent<TwinkePlayer>();
-}
+    }
 
     private void Start()
     {
@@ -45,15 +46,24 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        if(bestscore < score)
+        {
+            bestscore = score;
+            PlayerPrefs.SetInt("BestScore",bestscore);
+        }
         Move();
         transform.position = new Vector2(Mathf.Clamp(transform.position.x,MinPos.x,MaxPos.x),Mathf.Clamp(transform.position.y,MinPos.y,MaxPos.y));
 
         if(TotalPlayerHp <= 0)
         {
-            PlayerPrefs.SetInt("Score", score);
-            PlayerPrefs.SetInt("BestScore",bestscore);
-            SceneManager.LoadScene("StartScene");
+            OnDie();
         }
+    }
+
+    private void OnDie()
+    {
+        PlayerPrefs.SetInt("Score", score);
+        SceneManager.LoadScene("DieScene");
     }
 
     private void OnCollisionEnter2D(Collision2D other)

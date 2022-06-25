@@ -113,3 +113,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WhiteBullet: {fileID: 5441711025385384059, guid: 1f57aaf3417962147b6b62adfdc5bd68, type: 3}
+  maxHp: 2

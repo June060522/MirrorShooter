@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShowBestScore : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Text bestScoreText;
+    [SerializeField] PlayerManager playerManager;
+    private void Awake()
     {
-        
+        bestScoreText = GetComponent<Text>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        bestScoreText.text = "BestScore : " + PlayerPrefs.GetInt("BestScore",0);
     }
 }
