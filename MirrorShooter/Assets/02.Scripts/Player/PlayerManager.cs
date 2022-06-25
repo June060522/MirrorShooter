@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     private Vector2 MaxPos = new Vector2 (17.28f,9.5f);
     private readonly string Wall;
     bool onTriggerEnter2DWall = false;
-    
+    [SerializeField]ShowPlayerHp showPlayerHp;
     TwinkePlayer tp;
 
     private void Awake()
@@ -83,10 +83,10 @@ public class PlayerManager : MonoBehaviour
         if(other.CompareTag("BlackEnemyBullet"))
         {
             TotalPlayerHp--;
-
+            showPlayerHp.showHp();
             tp.Twinke();
             
-            Destroy(other.gameObject);
+            PoolManager.Instance.Push(other.gameObject);
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WhitePlayerManager : MonoBehaviour
 {
+    [SerializeField] ShowPlayerHp showPlayerHp;
     PlayerManager playerManager;
     private Vector2 MinPos = new Vector2 (-17.28f,-9.5f);
     private Vector2 MaxPos = new Vector2 (17.28f,9.5f);
@@ -33,8 +34,9 @@ public class WhitePlayerManager : MonoBehaviour
         if(other.CompareTag("WhiteEnemyBullet"))
         {
             playerManager.TotalPlayerHp--;
+            showPlayerHp.showHp();
             tp.Twinke();
-            Destroy(other.gameObject);
+            PoolManager.Instance.Push(other.gameObject);
         }
     }
 }
