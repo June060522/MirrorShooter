@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7178257878787356059}
   - component: {fileID: -3645041513972890957}
   - component: {fileID: -2497259132515136541}
+  - component: {fileID: 2547470897328533665}
   m_Layer: 7
   m_Name: WhiteBullet
   m_TagString: WhiteBullet
@@ -148,3 +149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageData: {fileID: 11400000, guid: 13d80ac8945310b45b0d88f64310356a, type: 2}
+--- !u!114 &2547470897328533665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811649030127779651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22cb7dc9afb5bf64b9a9b8ebb215a035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8207199729643162288}
   - component: {fileID: 584621883354183722}
   - component: {fileID: 1542422892510454499}
+  - component: {fileID: -1740349719578172018}
   m_Layer: 0
   m_Name: BlackEnemyBullet
   m_TagString: BlackEnemyBullet
@@ -147,5 +148,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99c33a0f62425824bba78118041812a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1740349719578172018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380096945317728074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976e74b4328956d46856797fc73416c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
