@@ -12,6 +12,7 @@ TagManager:
   - BlackEnemyBullet
   - MiddleWall
   - SideWall
+  - GrayEnemyBullet
   layers:
   - Default
   - TransparentFX

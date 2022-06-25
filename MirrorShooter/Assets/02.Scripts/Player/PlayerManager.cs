@@ -79,7 +79,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("BlackEnemyBullet"))
+        if(other.CompareTag("BlackEnemyBullet") || other.CompareTag("GrayEnemyBullet"))
         {
             TotalPlayerHp--;
             showPlayerHp.showHp();
