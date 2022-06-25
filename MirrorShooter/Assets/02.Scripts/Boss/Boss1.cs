@@ -5,15 +5,20 @@ using DG.Tweening;
 
 public class Boss1 : MonoBehaviour
 {
+    PlayerManager playerManager;
+    SpawnManager spawnManager;
+
     private bool heal = true;
     public float hp = 0;
-    public float maxhp = 200;
+    public float maxhp = 150;
     private int random;
     private int repeat = 0;
     [SerializeField] GameObject firePos;
     [SerializeField] GameObject grayEnemyBullet;
     private void Start()
     {
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        playerManager = GameObject.Find("BlackPlayer").GetComponent<PlayerManager>();
         hp = maxhp;
         StartCoroutine(Boss1Pattern());
     }
@@ -28,6 +33,7 @@ public class Boss1 : MonoBehaviour
         if(hp <= 0)
         {
             Destroy(gameObject);
+            spawnManager.BossDie();
         }
     }
 
@@ -36,6 +42,7 @@ public class Boss1 : MonoBehaviour
         if(other.CompareTag("BlackBullet") || other.CompareTag("WhiteBullet"))
         {
             hp--;
+            playerManager.Score += 50;
             PoolManager.Instance.Push(other.gameObject);
         }
     }
@@ -45,7 +52,6 @@ public class Boss1 : MonoBehaviour
         while(true)
         {
             random = Random.Range(1,4);
-            Debug.Log(random);
             switch(random)
             {
                 case 1 :

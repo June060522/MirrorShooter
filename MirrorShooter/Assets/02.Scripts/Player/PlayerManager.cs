@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-    int score = 0;
+    public int score = 0;
     public int bestscore = 0;
     public int Score
     {
