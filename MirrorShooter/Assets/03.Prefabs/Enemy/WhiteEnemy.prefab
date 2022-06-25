@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8512224479610321055}
   - component: {fileID: 8852466912150550126}
   - component: {fileID: 8710067373640817990}
+  - component: {fileID: 7128370633022067468}
   m_Layer: 0
   m_Name: WhiteEnemy
   m_TagString: Untagged
@@ -114,3 +115,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WhiteBullet: {fileID: 5441711025385384059, guid: 1f57aaf3417962147b6b62adfdc5bd68, type: 3}
   maxHp: 2
+--- !u!114 &7128370633022067468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249987217873982424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caf2db3b0023dd4c86e248cb440100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

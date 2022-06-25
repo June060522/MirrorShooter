@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6029108822580190787}
   - component: {fileID: 2924627037571094215}
   - component: {fileID: 8870448255082124001}
+  - component: {fileID: 549666202607266110}
   m_Layer: 0
   m_Name: WhiteEnemyBullet
   m_TagString: WhiteEnemyBullet
@@ -136,3 +137,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageData: {fileID: 11400000, guid: 13d80ac8945310b45b0d88f64310356a, type: 2}
+--- !u!114 &549666202607266110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5441711025385384059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caf2db3b0023dd4c86e248cb440100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

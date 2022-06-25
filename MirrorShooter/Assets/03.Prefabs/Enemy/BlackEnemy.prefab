@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7020532657969889151}
   - component: {fileID: 3480646368093893429}
   - component: {fileID: 1103145917147781969}
+  - component: {fileID: 3596748013676091113}
   m_Layer: 0
   m_Name: BlackEnemy
   m_TagString: Untagged
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlackBullet: {fileID: 6380096945317728074, guid: ec21d66d8986d34489935ad19406f558, type: 3}
+  maxhp: 2
+--- !u!114 &3596748013676091113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808439036685113427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c33a0f62425824bba78118041812a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
