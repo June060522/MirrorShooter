@@ -28,10 +28,10 @@ public class Boss2 : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(Boss2Pattern());
         playerManager = GameObject.Find("BlackPlayer").GetComponent<PlayerManager>();
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         hp = maxhp;
-        StartCoroutine(Boss2Pattern());
     }
     void Update()
     {

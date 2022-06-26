@@ -97,7 +97,6 @@ public class Boss4 : MonoBehaviour
 
     IEnumerator Pattern2()
     {
-        Debug.Log("!2323412");
         int randomSpawn = 0;
         for(int k = 0; k < 2; k++)
         {

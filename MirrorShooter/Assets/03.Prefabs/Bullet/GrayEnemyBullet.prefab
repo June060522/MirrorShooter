@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2875627026924998946}
   - component: {fileID: 2875627026924998945}
   - component: {fileID: 2875627026924998950}
-  - component: {fileID: 2875627026924998949}
+  - component: {fileID: -258416003431449878}
   m_Layer: 0
   m_Name: GrayEnemyBullet
   m_TagString: GrayEnemyBullet
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FlipX: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageData: {fileID: 11400000, guid: 13d80ac8945310b45b0d88f64310356a, type: 2}
---- !u!114 &2875627026924998949
+--- !u!114 &-258416003431449878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,6 +155,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2875627026924998944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07fef69f00e12494b8813013f31fb988, type: 3}
+  m_Script: {fileID: 11500000, guid: 1643a3ce118f4ac41b1625aca2d7127e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

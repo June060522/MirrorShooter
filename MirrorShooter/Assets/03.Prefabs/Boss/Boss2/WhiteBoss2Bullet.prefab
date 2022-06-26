@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3523508529871809604}
   - component: {fileID: 3523508529871809605}
   - component: {fileID: 2938987475599465082}
-  - component: {fileID: 6049618279672107774}
   - component: {fileID: 34052694559299288}
   - component: {fileID: 8989780180827172103}
+  - component: {fileID: -8677556649363588200}
   m_Layer: 0
   m_Name: WhiteBoss2Bullet
   m_TagString: WhiteEnemyBullet
@@ -112,18 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6049618279672107774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523508529871809602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5a46d61da180042b78413eb2ab4aa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &34052694559299288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,5 +135,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6caf2db3b0023dd4c86e248cb440100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8677556649363588200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523508529871809602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1643a3ce118f4ac41b1625aca2d7127e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

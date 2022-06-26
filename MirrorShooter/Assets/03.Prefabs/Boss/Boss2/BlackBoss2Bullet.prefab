@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3679626590693118368}
   - component: {fileID: 3679626590693118369}
   - component: {fileID: 7893335447032638320}
-  - component: {fileID: 7313894076850400184}
   - component: {fileID: 7171698993428260546}
   - component: {fileID: 9150691908915018763}
+  - component: {fileID: -7589845941206798255}
   m_Layer: 0
   m_Name: BlackBoss2Bullet
   m_TagString: BlackEnemyBullet
@@ -112,18 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7313894076850400184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3679626590693118370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07fef69f00e12494b8813013f31fb988, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7171698993428260546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,5 +135,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99c33a0f62425824bba78118041812a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7589845941206798255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3679626590693118370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1643a3ce118f4ac41b1625aca2d7127e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
