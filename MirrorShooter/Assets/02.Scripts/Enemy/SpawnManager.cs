@@ -11,7 +11,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject boss1;
     [SerializeField] GameObject boss2;
     [SerializeField] Canvas boss2Slider;
-    [SerializeField] GameObject boss3;
+    [SerializeField] GameObject boss3White;
+    [SerializeField] GameObject boss3Black;
     [SerializeField] GameObject boss4;
     enum Phase : short
     {
@@ -33,33 +34,34 @@ public class SpawnManager : MonoBehaviour
     {
         if(playerManager.Score >= 5000 && phase == Phase.easy)
         {
-            StopCoroutine(EnemySpawn());
+            StopAllCoroutines();
             Instantiate(boss1);
             phase = Phase.normal;
         }
         if(playerManager.Score >= 30000 && phase == Phase.normal)
         {
-            StopCoroutine(EnemySpawn());
+            StopAllCoroutines();
             Instantiate(boss2);
             Instantiate(boss2Slider);
             phase = Phase.hard;
         }
         if(playerManager.Score >= 70000 && phase == Phase.hard)
         {
-            StopCoroutine(EnemySpawn());
-            Instantiate(boss3);
+            StopAllCoroutines();
+            Instantiate(boss3Black);
+            Instantiate(boss3White);
             phase = Phase.expect;
         }
         if(playerManager.Score >= 130000 && phase == Phase.expect)
         {
-            StopCoroutine(EnemySpawn());
+            StopAllCoroutines();
             Instantiate(boss4);
         }
     }
 
     IEnumerator EnemySpawn()
     {
-        while((short)phase == 0)
+        while(phase == Phase.easy)
         {
             float x = Random.Range(stageData.MinLimit.x + 3.1f,stageData.MaxLimit.x - 3.1f);
             float y = Random.Range(stageData.MaxLimit.y - 1f,stageData.MaxLimit.y - 3.5f);
@@ -72,7 +74,7 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(3f);
         }
 
-        while((short)phase == 1)
+        while(phase == Phase.normal)
         {
             float x = Random.Range(stageData.MinLimit.x + 3.1f,stageData.MaxLimit.x - 3.1f);
             float y = Random.Range(stageData.MaxLimit.y - 1f,stageData.MaxLimit.y - 3.5f);
@@ -85,7 +87,7 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(2f);
         }
 
-        while ((short)phase == 2)
+        while (phase == Phase.hard)
         {
             float x = Random.Range(stageData.MinLimit.x + 3.1f, stageData.MaxLimit.x - 3.1f);
             float y = Random.Range(stageData.MaxLimit.y - 1f, stageData.MaxLimit.y - 3.5f);
@@ -98,7 +100,7 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
         }
 
-        while ((short)phase == 3)
+        while (phase == Phase.expect)
         {
             float x = Random.Range(stageData.MinLimit.x + 3.1f, stageData.MaxLimit.x - 3.1f);
             float y = Random.Range(stageData.MaxLimit.y - 1f, stageData.MaxLimit.y - 3.5f);

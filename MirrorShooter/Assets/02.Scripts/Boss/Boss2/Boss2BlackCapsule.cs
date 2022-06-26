@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Boss2WhiteCapsule : MonoBehaviour
+public class Boss2BlackCapsule : MonoBehaviour
 {
-    Boss2 boss2;
     ShowPlayerHp showPlayerHp;
-
     PlayerManager playerManager;
-    GameObject WhitePlayer;
+
+    Boss2 boss2;
+    GameObject BlackPlayer;
     float i = 0f;
 
     float hp = 0f;
@@ -20,11 +19,9 @@ public class Boss2WhiteCapsule : MonoBehaviour
     {
         showPlayerHp = GameObject.Find("PlayerHp").GetComponent<ShowPlayerHp>();
         playerManager = GameObject.Find("BlackPlayer").GetComponent<PlayerManager>();
-
-        boss2 = GameObject.Find("Boss2").GetComponent<Boss2>();
+        boss2 = GameObject.Find("Boss2(Clone)").GetComponent<Boss2>();
         hp = maxhp;
-        WhitePlayer = GameObject.Find("WhitePlayer");
-        
+        BlackPlayer = GameObject.Find("BlackPlayer");
         i = Random.Range(0,360);
         transform.rotation = Quaternion.Euler(0,0,i);
     }
@@ -32,9 +29,9 @@ public class Boss2WhiteCapsule : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.Euler(0,0,i);
-        i -= 0.1f;
+        i += 0.1f;
 
-        if(WhitePlayer.transform.position.x < 0)
+        if(BlackPlayer.transform.position.x < 0)
         {
             transform.position = new Vector3(-13,4.5f,0);
         }
@@ -43,6 +40,7 @@ public class Boss2WhiteCapsule : MonoBehaviour
             transform.position = new Vector3(13,4.5f,0);
         }
 
+        
         if(hp < 0)
         {
             Destroy(gameObject);
@@ -61,7 +59,7 @@ public class Boss2WhiteCapsule : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("WhiteBullet"))
+        if(other.CompareTag("BlackBullet"))
         {
             hp--;
             PoolManager.Instance.Push(other.gameObject);

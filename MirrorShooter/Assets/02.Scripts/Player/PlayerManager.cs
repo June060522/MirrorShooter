@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject SideLine;
     [SerializeField] GameObject SideLine1;
     private Vector2 MinPos = new Vector2 (-17.28f,-9.5f);
-    private Vector2 MaxPos = new Vector2 (17.28f,9.5f);
+    private Vector2 MaxPos = new Vector2 (17.28f,7.4f);
     private readonly string Wall;
     [SerializeField]ShowPlayerHp showPlayerHp;
     TwinkePlayer tp;
