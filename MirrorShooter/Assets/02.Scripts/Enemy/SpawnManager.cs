@@ -45,14 +45,14 @@ public class SpawnManager : MonoBehaviour
             Instantiate(boss2Slider);
             phase = Phase.hard;
         }
-        if(playerManager.Score >= 70000 && phase == Phase.hard)
+        if(playerManager.Score >= 130000 && phase == Phase.hard)
         {
             StopAllCoroutines();
             Instantiate(boss3Black);
             Instantiate(boss3White);
             phase = Phase.expect;
         }
-        if(playerManager.Score >= 130000 && phase == Phase.expect)
+        if(playerManager.Score >= 400000 && phase == Phase.expect)
         {
             StopAllCoroutines();
             Instantiate(boss4);

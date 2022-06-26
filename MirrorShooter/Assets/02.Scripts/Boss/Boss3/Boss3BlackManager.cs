@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Boss3BlackManager : MonoBehaviour
 {
+    PlayerManager playerManager;
+    [SerializeField] Boss3WhiteManager boss3WhiteManager;
     [SerializeField] GameObject BlackEnemyBullet;
     [SerializeField] GameObject guidedBullet;
     private GameObject BlackPlayer;
@@ -14,6 +16,7 @@ public class Boss3BlackManager : MonoBehaviour
     float fireSpeed = 1f;
     void Start()
     {
+        playerManager = GameObject.Find("BlackPlayer").GetComponent<PlayerManager>();
         BlackPlayer = GameObject.Find("BlackPlayer");
         StartCoroutine(Fire());
         StartCoroutine(Boss3Pattern());
@@ -39,7 +42,7 @@ public class Boss3BlackManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         while(true)
         {
-            random = Random.Range(2,3);
+            random = Random.Range(3,4);
             switch(random)
             {
                 case 1 :
@@ -69,11 +72,28 @@ public class Boss3BlackManager : MonoBehaviour
     IEnumerator Boss3Pattern2()
     {
         fireSpeed = 0.55f;
-        yield return new WaitForSeconds(10f);
+        for(int i = 0; i < 18; i++)
+        {
+            PoolManager.Instance.Pop(BlackEnemyBullet,transform.position,Quaternion.Euler(0,0,25));
+            PoolManager.Instance.Pop(BlackEnemyBullet,transform.position,Quaternion.Euler(0,0,-25));
+            yield return new WaitForSeconds(fireSpeed);
+        }
         fireSpeed = 1f;
+        yield return null;
     }
     IEnumerator Boss3Pattern3()
     {
-        yield return null;
+        transform.localScale = new Vector3(8,8,1);
+        yield return new WaitForSeconds(12f);
+        transform.localScale = new Vector3(5,5,1);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("BlackBullet"))
+        {
+            boss3WhiteManager.hp--;
+            playerManager.Score += 300;
+            PoolManager.Instance.Push(other.gameObject);
+        }
     }
 }

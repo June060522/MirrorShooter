@@ -23,11 +23,11 @@ public class OptionScore : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.O))
         {
-            playerManager.score = 70000;
+            playerManager.score = 130000;
         }
         if(Input.GetKeyDown(KeyCode.P))
         {
-            playerManager.score = 130000;
+            playerManager.score = 400000;
         }
         if(Input.GetKeyDown(KeyCode.L))
         {

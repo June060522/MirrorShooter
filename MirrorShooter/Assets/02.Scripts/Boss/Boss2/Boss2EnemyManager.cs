@@ -7,7 +7,6 @@ public class Boss2EnemyManager : MonoBehaviour
 {
     PlayerManager playerManager;
     private int hp = 0;
-    private int repeatMove;
     [SerializeField] GameObject BlackBullet;
     [SerializeField] int maxhp = 2;
     int x;
@@ -20,7 +19,6 @@ public class Boss2EnemyManager : MonoBehaviour
 
     private void OnEnable()
     {
-        repeatMove = 0;
         hp = maxhp;
         x = Random.Range(16,-17);
         y = Random.Range(0,7);

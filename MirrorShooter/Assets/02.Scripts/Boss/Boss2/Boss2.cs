@@ -61,7 +61,6 @@ public class Boss2 : MonoBehaviour
         while(true)
         {
             random = Random.Range(1,4);
-            Debug.Log(random);
             switch(random)
             {
                 case 1 :

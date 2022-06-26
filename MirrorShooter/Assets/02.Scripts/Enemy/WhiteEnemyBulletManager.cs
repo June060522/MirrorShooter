@@ -14,4 +14,12 @@ public class WhiteEnemyBulletManager : MonoBehaviour
     {
         transform.Translate(speed * Vector2.down * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("MiddleWall") || other.CompareTag("SideWall"))
+        {
+            PoolManager.Instance.Push(gameObject);
+        }
+    }
 }
