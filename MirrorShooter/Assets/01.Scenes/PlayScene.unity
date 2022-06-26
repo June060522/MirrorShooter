@@ -159,10 +159,13 @@ MonoBehaviour:
   boss2Slider: {fileID: 3381038770415988625, guid: 666ccb6dea011294a9136cb579473f1b, type: 3}
   boss3White: {fileID: 7578622027873271739, guid: 75601d87e30b3e340a44edff42834263, type: 3}
   boss3Black: {fileID: 8168778409465133360, guid: 5b00c1ba1ea314d4d8b528066c344270, type: 3}
-  boss4: {fileID: 0}
+  boss4: {fileID: 8054685154241261600, guid: 4aaafe55de4a6f74780fb810a962a0bf, type: 3}
+  hiddenScreen: {fileID: 8098518366131839516, guid: 0f4d46bf04331224cb34f08791ce402e, type: 3}
   phase: 0
   BlackEnemy: {fileID: 1808439036685113427, guid: 691b823756cc16a409714d131caca1cf, type: 3}
   WhiteEnemy: {fileID: 249987217873982424, guid: 5efd36c41b24ae04db0f804eaae0fabb, type: 3}
+  HBlackEnemy: {fileID: 5638306539968814411, guid: 7dafcd3937121e4419b9602733d8f191, type: 3}
+  HWhiteEnemy: {fileID: 3360620393342632822, guid: ed15f8f7220e7204180a1a3c49a342d2, type: 3}
 --- !u!4 &101528559
 Transform:
   m_ObjectHideFlags: 0
@@ -713,6 +716,13 @@ MonoBehaviour:
   - {fileID: 3523508529871809602, guid: 12a8f90d934fb4140beadb3f960769d9, type: 3}
   - {fileID: 5750054457562566189, guid: daef58da291a66c469b3387b1c43c67b, type: 3}
   - {fileID: 248003161792738203, guid: 966301e951b44b84fb5fa72383f1376c, type: 3}
+  - {fileID: 1382897683004018462, guid: b5c63466c963f8f45820358ee91c0773, type: 3}
+  - {fileID: 278537243542853755, guid: bf6ceb3c49117d34d8cc1ce8a1a6026d, type: 3}
+  - {fileID: 2985443833109835218, guid: 4757c8c96655d01459cc6aee36c4a58d, type: 3}
+  - {fileID: 7080619205251867919, guid: 865da936e234e7647ba14d8288761fc8, type: 3}
+  - {fileID: 8822344266783536427, guid: 35b87473da003c0469defb8d00b41c6c, type: 3}
+  - {fileID: 5638306539968814411, guid: 7dafcd3937121e4419b9602733d8f191, type: 3}
+  - {fileID: 3360620393342632822, guid: ed15f8f7220e7204180a1a3c49a342d2, type: 3}
 --- !u!4 &756422762
 Transform:
   m_ObjectHideFlags: 0
@@ -1428,7 +1438,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: eaa7024327e3ec843840e1febe71f0a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

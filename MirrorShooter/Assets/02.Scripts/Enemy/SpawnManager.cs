@@ -14,6 +14,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject boss3White;
     [SerializeField] GameObject boss3Black;
     [SerializeField] GameObject boss4;
+    [SerializeField] GameObject hiddenScreen;
     enum Phase : short
     {
         easy = 0,
@@ -25,6 +26,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]private Phase phase = Phase.easy;
     [SerializeField] GameObject BlackEnemy;
     [SerializeField] GameObject WhiteEnemy;
+
+    [SerializeField] GameObject HBlackEnemy;
+    [SerializeField] GameObject HWhiteEnemy;
     void Start()
     {
         StartCoroutine(EnemySpawn());
@@ -56,6 +60,7 @@ public class SpawnManager : MonoBehaviour
         {
             StopAllCoroutines();
             Instantiate(boss4);
+            Instantiate(hiddenScreen);
         }
     }
 
@@ -80,10 +85,14 @@ public class SpawnManager : MonoBehaviour
             float y = Random.Range(stageData.MaxLimit.y - 1f,stageData.MaxLimit.y - 3.5f);
             Vector3 randomPos = new Vector3(x,y,0);
             int spawnvalue = Random.Range(0,1000);
-            if(spawnvalue > 499)
+            if(spawnvalue > 699)
                 PoolManager.Instance.Pop(BlackEnemy,randomPos,Quaternion.identity);
-            else
+            else if(spawnvalue > 399)
                 PoolManager.Instance.Pop(WhiteEnemy,randomPos,Quaternion.identity);
+            else if(spawnvalue > 199)
+                PoolManager.Instance.Pop(HBlackEnemy,randomPos,Quaternion.identity);
+            else
+                PoolManager.Instance.Pop(HWhiteEnemy,randomPos,Quaternion.identity);
             yield return new WaitForSeconds(2f);
         }
 
@@ -93,10 +102,14 @@ public class SpawnManager : MonoBehaviour
             float y = Random.Range(stageData.MaxLimit.y - 1f, stageData.MaxLimit.y - 3.5f);
             Vector3 randomPos = new Vector3(x, y, 0);
             int spawnvalue = Random.Range(0, 1000);
-            if (spawnvalue > 499)
-                PoolManager.Instance.Pop(BlackEnemy, randomPos, Quaternion.identity);
+            if(spawnvalue > 799)
+                PoolManager.Instance.Pop(BlackEnemy,randomPos,Quaternion.identity);
+            else if(spawnvalue > 599)
+                PoolManager.Instance.Pop(WhiteEnemy,randomPos,Quaternion.identity);
+            else if(spawnvalue > 299)
+                PoolManager.Instance.Pop(HBlackEnemy,randomPos,Quaternion.identity);
             else
-                PoolManager.Instance.Pop(WhiteEnemy, randomPos, Quaternion.identity);
+                PoolManager.Instance.Pop(HWhiteEnemy,randomPos,Quaternion.identity);
             yield return new WaitForSeconds(1.5f);
         }
 
@@ -106,10 +119,14 @@ public class SpawnManager : MonoBehaviour
             float y = Random.Range(stageData.MaxLimit.y - 1f, stageData.MaxLimit.y - 3.5f);
             Vector3 randomPos = new Vector3(x, y, 0);
             int spawnvalue = Random.Range(0, 1000);
-            if (spawnvalue > 499)
-                PoolManager.Instance.Pop(BlackEnemy, randomPos, Quaternion.identity);
+            if(spawnvalue > 899)
+                PoolManager.Instance.Pop(BlackEnemy,randomPos,Quaternion.identity);
+            else if(spawnvalue > 799)
+                PoolManager.Instance.Pop(WhiteEnemy,randomPos,Quaternion.identity);
+            else if(spawnvalue > 399)
+                PoolManager.Instance.Pop(HBlackEnemy,randomPos,Quaternion.identity);
             else
-                PoolManager.Instance.Pop(WhiteEnemy, randomPos, Quaternion.identity);
+                PoolManager.Instance.Pop(HWhiteEnemy,randomPos,Quaternion.identity);
             yield return new WaitForSeconds(0.75f);
         }
     }

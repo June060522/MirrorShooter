@@ -31,7 +31,7 @@ public class WhitePlayerManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("WhiteEnemyBullet") || other.CompareTag("GrayEnemyBullet"))
+        if(other.CompareTag("WhiteEnemyBullet") || other.CompareTag("GrayEnemyBullet") || other.CompareTag("HWhiteEnemyBullet"))
         {
             playerManager.TotalPlayerHp--;
             showPlayerHp.showHp();
