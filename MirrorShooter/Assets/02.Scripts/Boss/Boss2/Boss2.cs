@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss2 : MonoBehaviour
 {
+    [SerializeField] Canvas slider;
     float a = 0;
 
     public float hp = 0;
@@ -17,6 +19,9 @@ public class Boss2 : MonoBehaviour
 
     [SerializeField]GameObject BlackEnemy;
     [SerializeField]GameObject WhiteEnemy;
+
+    [SerializeField]GameObject healBlackCapsule;
+    [SerializeField]GameObject healWhiteCapsule;
 
     SpawnManager spawnManager;
     PlayerManager playerManager;
@@ -36,6 +41,7 @@ public class Boss2 : MonoBehaviour
         if(hp <= 0)
         {
             Destroy(gameObject);
+            Destroy(slider);
             spawnManager.BossDie();
         }
     }
@@ -54,7 +60,7 @@ public class Boss2 : MonoBehaviour
     {
         while(true)
         {
-            random = Random.Range(2,3);
+            random = Random.Range(1,4);
             Debug.Log(random);
             switch(random)
             {
@@ -125,6 +131,8 @@ public class Boss2 : MonoBehaviour
 
     IEnumerator Pattern3()
     {
+        Instantiate(healBlackCapsule);
+        Instantiate(healWhiteCapsule);
         yield return null;
     }
 }

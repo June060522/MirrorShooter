@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] GameObject boss1;
     [SerializeField] GameObject boss2;
+    [SerializeField] Canvas boss2Slider;
     [SerializeField] GameObject boss3;
     [SerializeField] GameObject boss4;
     enum Phase : short
@@ -39,6 +41,7 @@ public class SpawnManager : MonoBehaviour
         {
             StopCoroutine(EnemySpawn());
             Instantiate(boss2);
+            Instantiate(boss2Slider);
             phase = Phase.hard;
         }
         if(playerManager.Score >= 70000 && phase == Phase.hard)

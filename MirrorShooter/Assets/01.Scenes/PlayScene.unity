@@ -1191,6 +1191,8 @@ MonoBehaviour:
   FirePos: {fileID: 1686249688}
   BlackEnemy: {fileID: 5750054457562566189, guid: daef58da291a66c469b3387b1c43c67b, type: 3}
   WhiteEnemy: {fileID: 248003161792738203, guid: 966301e951b44b84fb5fa72383f1376c, type: 3}
+  healBlackCapsule: {fileID: 7218263371042226515, guid: 8be9c3086b90fc64e9ab1fe7e099275f, type: 3}
+  healWhiteCapsule: {fileID: 2314186556965346139, guid: 0c6268fb55021d942b11611715d6f031, type: 3}
 --- !u!212 &863218558
 SpriteRenderer:
   m_ObjectHideFlags: 0
