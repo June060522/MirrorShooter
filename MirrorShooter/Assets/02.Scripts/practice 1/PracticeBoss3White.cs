@@ -1,39 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Boss3BlackManager : MonoBehaviour
+public class PracticeBoss3White : MonoBehaviour
 {
-    PlayerManager playerManager;
-    [SerializeField] Boss3WhiteManager boss3WhiteManager;
-    [SerializeField] GameObject BlackEnemyBullet;
+    PracticePlayerManager playerManager;
+
+    [SerializeField] GameObject WhiteEnemyBullet;
     [SerializeField] GameObject guidedBullet;
-    private GameObject BlackPlayer;
+    [SerializeField] PracticeBoss3Black boss3blackManager;
+
+    private GameObject Boss3Black;
+    private GameObject WhitePlayer;
     private Vector2 MinPos = new Vector2 (-17.28f,-9.5f);
     private Vector2 MaxPos = new Vector2 (17.28f,5.3f);
+
+    public float hp = 1;
+    private float saveHp;
+    public float maxHp = 500;
 
     int random = 0;
     float fireSpeed = 1f;
     void Start()
     {
-        playerManager = GameObject.Find("BlackPlayer").GetComponent<PlayerManager>();
-        BlackPlayer = GameObject.Find("BlackPlayer");
+        Boss3Black = GameObject.Find("Boss3Black");
+        playerManager = GameObject.Find("BlackPlayer").GetComponent<PracticePlayerManager>();
+        hp = maxHp;
+        WhitePlayer = GameObject.Find("WhitePlayer");
         StartCoroutine(Fire());
         StartCoroutine(Boss3Pattern());
     }
 
     void Update()
     {
-        transform.position = BlackPlayer.transform.position + Vector3.up * 13;
+        transform.position = WhitePlayer.transform.position + Vector3.up * 13;
         transform.position = new Vector2(Mathf.Clamp(transform.position.x,MinPos.x,MaxPos.x),Mathf.Clamp(transform.position.y,MinPos.y,MaxPos.y));
+
+        if(hp <= 0 || playerManager.checkDie == false)
+        {
+            Destroy(Boss3Black);
+            Destroy(gameObject);
+            SceneManager.LoadScene("StartScene");
+        }
     }
 
     IEnumerator Fire()
     {
+        yield return new WaitForSeconds(0.4f);
         while(true)
         {
             yield return new WaitForSeconds(fireSpeed);
-            PoolManager.Instance.Pop(BlackEnemyBullet,transform.position,Quaternion.identity);
+            PoolManager.Instance.Pop(WhiteEnemyBullet,transform.position,Quaternion.identity);
         }
     }
 
@@ -71,11 +89,12 @@ public class Boss3BlackManager : MonoBehaviour
     }
     IEnumerator Boss3Pattern2()
     {
+        yield return new WaitForSeconds(0.4f);
         fireSpeed = 0.55f;
         for(int i = 0; i < 18; i++)
         {
-            PoolManager.Instance.Pop(BlackEnemyBullet,transform.position,Quaternion.Euler(0,0,25));
-            PoolManager.Instance.Pop(BlackEnemyBullet,transform.position,Quaternion.Euler(0,0,-25));
+            PoolManager.Instance.Pop(WhiteEnemyBullet,transform.position,Quaternion.Euler(0,0,25));
+            PoolManager.Instance.Pop(WhiteEnemyBullet,transform.position,Quaternion.Euler(0,0,-25));
             yield return new WaitForSeconds(fireSpeed);
         }
         fireSpeed = 1f;
@@ -84,15 +103,17 @@ public class Boss3BlackManager : MonoBehaviour
     IEnumerator Boss3Pattern3()
     {
         transform.localScale = new Vector3(8,8,1);
+        saveHp = hp;
         yield return new WaitForSeconds(12f);
+        hp = saveHp;
         transform.localScale = new Vector3(5,5,1);
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("BlackBullet"))
+        if(other.CompareTag("WhiteBullet"))
         {
-            boss3WhiteManager.hp--;
-            playerManager.Score += 300;
+            hp--;
             PoolManager.Instance.Push(other.gameObject);
         }
     }

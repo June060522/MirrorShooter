@@ -104,7 +104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 57d81f972bcb989408e4d71e4c6d1428, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   slider: {fileID: 3381038770415988625, guid: 666ccb6dea011294a9136cb579473f1b, type: 3}
   hp: 0
   maxhp: 400
+  Boss2DieCheck: 0
   BlackEnemyBullet: {fileID: 3679626590693118370, guid: 28ded252e9f1f254b8a491969df91864, type: 3}
   WhiteEnemyBullet: {fileID: 3523508529871809602, guid: 12a8f90d934fb4140beadb3f960769d9, type: 3}
   FirePos: {fileID: 3232972089724454166}

@@ -61,7 +61,7 @@ public class Boss3WhiteManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         while(true)
         {
-            random = Random.Range(3,4);
+            random = Random.Range(1,4);
             switch(random)
             {
                 case 1 :

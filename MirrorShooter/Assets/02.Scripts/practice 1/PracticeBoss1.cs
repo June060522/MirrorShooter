@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class PracticeBoss1 : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class PracticeBoss1 : MonoBehaviour
         if(hp <= 0 || playerManager.checkDie == false)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("StartScene");
         }
     }
 

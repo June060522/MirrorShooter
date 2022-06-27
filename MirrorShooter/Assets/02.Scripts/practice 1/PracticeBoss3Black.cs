@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss3BlackManager : MonoBehaviour
+public class PracticeBoss3Black : MonoBehaviour
 {
-    PlayerManager playerManager;
-    [SerializeField] Boss3WhiteManager boss3WhiteManager;
+    PracticePlayerManager playerManager;
+    [SerializeField] PracticeBoss3White boss3WhiteManager;
     [SerializeField] GameObject BlackEnemyBullet;
     [SerializeField] GameObject guidedBullet;
     private GameObject BlackPlayer;
@@ -16,7 +16,7 @@ public class Boss3BlackManager : MonoBehaviour
     float fireSpeed = 1f;
     void Start()
     {
-        playerManager = GameObject.Find("BlackPlayer").GetComponent<PlayerManager>();
+        playerManager = GameObject.Find("BlackPlayer").GetComponent<PracticePlayerManager>();
         BlackPlayer = GameObject.Find("BlackPlayer");
         StartCoroutine(Fire());
         StartCoroutine(Boss3Pattern());
@@ -92,7 +92,6 @@ public class Boss3BlackManager : MonoBehaviour
         if(other.CompareTag("BlackBullet"))
         {
             boss3WhiteManager.hp--;
-            playerManager.Score += 300;
             PoolManager.Instance.Push(other.gameObject);
         }
     }
