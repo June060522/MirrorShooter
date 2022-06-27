@@ -14,7 +14,6 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject boss3White;
     [SerializeField] GameObject boss3Black;
     [SerializeField] GameObject boss4;
-    [SerializeField] GameObject hiddenScreen;
     enum Phase : short
     {
         easy = 0,
@@ -60,7 +59,6 @@ public class SpawnManager : MonoBehaviour
         {
             StopAllCoroutines();
             Instantiate(boss4);
-            Instantiate(hiddenScreen);
         }
     }
 

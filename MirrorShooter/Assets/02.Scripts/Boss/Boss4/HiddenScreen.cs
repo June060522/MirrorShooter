@@ -5,15 +5,11 @@ using UnityEngine;
 public class HiddenScreen : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    void Awake()
-    {
-        gameObject.SetActive(true);
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        gameObject.SetActive(false);
-    }
+    [SerializeField]Boss4 boss4;
 
     private void OnEnable()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(Hidden());
     }
 

@@ -38,7 +38,7 @@ public class Boss3WhiteManager : MonoBehaviour
         transform.position = WhitePlayer.transform.position + Vector3.up * 13;
         transform.position = new Vector2(Mathf.Clamp(transform.position.x,MinPos.x,MaxPos.x),Mathf.Clamp(transform.position.y,MinPos.y,MaxPos.y));
 
-        if(hp <= 0)
+        if(hp <= 0 || playerManager.checkDie == false)
         {
             spawnManager.BossDie();
             Destroy(Boss3Black);

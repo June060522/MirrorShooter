@@ -16,5 +16,10 @@ public class ShowBoss2Hp : MonoBehaviour
     void Update()
     {
         slider.value = boss2.hp / boss2.maxhp;
+
+        if(boss2.Boss2DieCheck)
+        {
+            Destroy(gameObject);
+        }
     }
 }

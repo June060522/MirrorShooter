@@ -12,11 +12,15 @@ public class Boss4 : MonoBehaviour
     
     public float hp = 0f;
     public float maxHp = 700f;
+    public bool boss4DieCheck = false;
 
-    [SerializeField] GameObject hiddenScreen;
+    [SerializeField]GameObject hiddenScreen;
     [SerializeField] GameObject GrayEnemyBullet;
     [SerializeField] GameObject BlackEnemyBullet;
     [SerializeField] GameObject WhiteEnemyBullet;
+    private void Awake()
+    {
+    }
     void Start()
     {
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
@@ -30,10 +34,11 @@ public class Boss4 : MonoBehaviour
         transform.rotation = Quaternion.Euler(0,0,i);
         i += 10f;
 
-        if(hp <= 0)
+        if(hp <= 0 || playerManager.checkDie == false)
         {
-            Destroy(gameObject);
+            boss4DieCheck = true;
             spawnManager.BossDie();
+            Destroy(gameObject);
         }
     }
 
@@ -72,7 +77,7 @@ public class Boss4 : MonoBehaviour
     {
         float i = 0;
         int randomSpawn = 0;
-        for(i = 0f; i < 360; i += 7)
+        for(i = 0f; i < 360; i += 5)
         {
             randomSpawn = Random.Range(1,4);
             switch(randomSpawn)
@@ -100,7 +105,7 @@ public class Boss4 : MonoBehaviour
         int randomSpawn = 0;
         for(int k = 0; k < 2; k++)
         {
-            for(float i = 16.5f; i > -16.5f; i -= 1.8f)
+            for(float i = 16.5f; i > -16.5f; i -= 1.1f)
             {
                 Vector3 dir = new Vector3(i,9,0);
                 randomSpawn = Random.Range(1,4);

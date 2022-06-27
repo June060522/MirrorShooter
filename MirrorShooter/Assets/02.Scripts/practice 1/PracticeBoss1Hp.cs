@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowBoss4Hp : MonoBehaviour
+public class PracticeBoss1Hp : MonoBehaviour
 {
+    [SerializeField] PracticeBoss1 boss1;
     Slider slider;
-    [SerializeField]Boss4 boss4;
     void Start()
     {
         slider = GetComponent<Slider>();
@@ -14,11 +14,6 @@ public class ShowBoss4Hp : MonoBehaviour
 
     void Update()
     {
-        slider.value = boss4.hp / boss4.maxHp;
-
-        if(boss4.boss4DieCheck)
-        {
-            Destroy(gameObject);
-        }
+        slider.value = boss1.hp / boss1.maxhp;
     }
 }

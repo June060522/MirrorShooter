@@ -13,6 +13,8 @@ public class Boss2 : MonoBehaviour
     private int random;
     private int spawn;
 
+    public bool Boss2DieCheck = false;
+
     [SerializeField]GameObject BlackEnemyBullet;
     [SerializeField]GameObject WhiteEnemyBullet;
     [SerializeField]GameObject FirePos;
@@ -38,11 +40,11 @@ public class Boss2 : MonoBehaviour
         transform.rotation = Quaternion.Euler(0,0,a);
         a += 0.2f;
 
-        if(hp <= 0)
+        if(hp <= 0 || playerManager.checkDie == false)
         {
-            Destroy(gameObject);
-            Destroy(slider);
+            Boss2DieCheck = true;
             spawnManager.BossDie();
+            Destroy(gameObject);
         }
     }
 
