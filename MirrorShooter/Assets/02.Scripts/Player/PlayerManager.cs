@@ -14,6 +14,9 @@ public class PlayerManager : MonoBehaviour
     }
     public int TotalPlayerHp = 6;
     private float speed = 7.5f;
+
+    public bool checkDie = true;
+
     [SerializeField] GameObject WhitePlayer;
     [SerializeField] GameObject BlackPlayer;
     [SerializeField] GameObject RememberPos;
@@ -26,6 +29,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject CenterLine;
     [SerializeField] GameObject SideLine;
     [SerializeField] GameObject SideLine1;
+
+    [SerializeField] Canvas scoreCanvas;
+    [SerializeField] GameObject gameOverManager;
     private Vector2 MinPos = new Vector2 (-17.28f,-9.5f);
     private Vector2 MaxPos = new Vector2 (17.28f,7.4f);
     private readonly string Wall;
@@ -41,6 +47,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Fire());
+        StartCoroutine(Move());
     }
 
     void Update()
@@ -50,19 +57,22 @@ public class PlayerManager : MonoBehaviour
             bestscore = score;
             PlayerPrefs.SetInt("BestScore",bestscore);
         }
-        Move();
         transform.position = new Vector2(Mathf.Clamp(transform.position.x,MinPos.x,MaxPos.x),Mathf.Clamp(transform.position.y,MinPos.y,MaxPos.y));
 
-        if(TotalPlayerHp <= 0)
+        if(TotalPlayerHp <= 0 && checkDie)
         {
-            OnDie();
+            StartCoroutine(OnDie());
+            checkDie = false;
         }
     }
 
-    private void OnDie()
+    IEnumerator OnDie()
     {
+        StopAllCoroutines();
         PlayerPrefs.SetInt("Score", score);
-        SceneManager.LoadScene("DieScene");
+        gameOverManager.SetActive(true);
+        scoreCanvas.gameObject.SetActive(false);
+        yield return null;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -89,13 +99,17 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void Move()
+    IEnumerator Move()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-        Vector2 dir = new Vector2(x,y);
-        transform.Translate(dir * speed * Time.deltaTime);
-        WhitePlayer.transform.Translate(-dir * speed * Time.deltaTime);
+        while(true)
+        {
+            float x = Input.GetAxisRaw("Horizontal");
+            float y = Input.GetAxisRaw("Vertical");
+            Vector2 dir = new Vector2(x,y);
+            transform.Translate(dir * speed * Time.deltaTime);
+            WhitePlayer.transform.Translate(-dir * speed * Time.deltaTime);
+            yield return null;
+        }
     }
 
     private void MiddleChange()
