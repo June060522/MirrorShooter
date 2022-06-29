@@ -25,7 +25,7 @@ public class WhiteEnemyManager : MonoBehaviour
 
     IEnumerator SpawnMove()
     {
-        while(repeatMove < 170)
+        while(repeatMove < 50)
         {
             transform.position += Vector3.down * 5 * Time.deltaTime;
             repeatMove++;
