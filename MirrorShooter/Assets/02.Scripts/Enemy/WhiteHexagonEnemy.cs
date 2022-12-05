@@ -61,7 +61,7 @@ public class WhiteHexagonEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("BlackBullet"))
+        if(other.CompareTag("WhiteBullet"))
         {
             PoolManager.Instance.Push(other.gameObject);
             hp--;
